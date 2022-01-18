@@ -1,0 +1,28 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-black bg-light" style="width: 280px; height: 100vh">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <span class="fs-4 text-black">Zip HR</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="currentPath === '/' ? 'active' : 'text-black'" routerLink="/">
+                Dashboard
+            </a>
+        </li>
+        <li>
+            <a class="nav-link"  [ngClass]="currentPath.includes('/posts') ? 'active' : 'text-black'"  routerLink="/posts">
+                Posts
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" [ngClass]="currentPath.includes('/albums') ? 'active' : 'text-black'"  routerLink="/albums">
+                Albums
+            </a>
+        </li>
+        <li>
+            <a class="nav-link" [ngClass]="currentPath.includes('/photos') ? 'active' : 'text-black'"  routerLink="/photos">
+                photos
+            </a>
+        </li>
+    </ul>
+</div>

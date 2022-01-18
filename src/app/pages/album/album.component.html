@@ -1,0 +1,20 @@
+<div class="d-flex flex-column p-4">
+
+    <div class="text-center" *ngIf="loading">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div *ngIf="!loading && album">
+        <h2 class="display-6 fw-bold">{{ album.title }}</h2>
+        <p>by <span class="text-primary" [routerLink]="['/users', album.userId]">User {{ album.userId }}</span></p>
+        <div class="row">
+            <div class="mb-5 col-2" *ngFor="let photo of album.photos">
+                <img src={{photo.thumbnailUrl}} alt="thumbnail" width="150" height="150">
+                <p class="card-text text-primary" [routerLink]="['/photos', photo.id]">{{ photo.title }}}</p>
+            </div>
+        </div>
+    </div>
+
+</div>

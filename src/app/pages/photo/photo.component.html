@@ -1,0 +1,17 @@
+<div class="d-flex flex-column p-4">
+
+    <div class="text-center" *ngIf="loading">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div *ngIf="!loading && photo">
+        <h2 class="display-6 fw-bold">{{photo.title}}</h2>
+        <p class="text-primary" [routerLink]="['/albums', photo.albumId]">View Album</p>
+        <div class="mb-5 d-flex justify-content-center mt-2">
+            <img src={{photo.url}} alt="thumbnail" width="600" height="600">
+        </div>
+    </div>
+
+</div>

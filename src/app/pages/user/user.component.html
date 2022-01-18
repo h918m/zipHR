@@ -1,0 +1,42 @@
+<div class="d-flex flex-column p-4">
+
+    <div class="text-center" *ngIf="loading">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <div *ngIf="!loading && user">
+        <div class="jumbotron">
+            <h1 class="display-5 p-4">{{ user.name }}</h1>
+            <p>@{{ user.username }} -- {{ user.email }} -- {{ user.website }} -- {{ user.company.name }} -- {{
+                user.address.city }}</p>
+            <hr>
+        </div>
+
+        <div class="row">
+            <div class="card col m-1" style="height: 400px; overflow-y: scroll;">
+                <div class="card-header">
+                    Albums
+                </div>
+                <ul class="list-group list-group-flush" *ngFor="let album of albums">
+                    <li class="list-group-item text-primary" [routerLink]="['/albums', album.id]">{{ album.title }}</li>
+                </ul>
+            </div>
+
+            <div class="card col m-1" style="height: 400px; overflow-y: scroll;">
+                <div class="card-header">
+                    Posts
+                </div>
+                <ul class="list-group list-group-flush" *ngFor="let post of posts">
+                    <li class="list-group-item ">
+                        <p class="text-primary" [routerLink]="['/posts', post.id]"> {{ post.title }}</p>
+                        <p class="text-truncate" [routerLink]="['/posts', post.id]"> {{ post.body }}</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</div>
